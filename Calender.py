@@ -2,15 +2,27 @@ from tkinter import*
 import calendar
 
 window=Tk()
-window.geometry("300x300")
+window.geometry("250x140")
 window.title('Calender')
 window.config(background='Orange')
 
-title_l=Label(window,text='Calender',font='calibri 25')
-year_l=Label(window,text='Year',font='calibri 18')
+
+def showCal():
+    fetchher=int(entry_i.get())
+    calcontent=calendar.calendar(fetchher)
+    outputwindow=Tk()
+    outputwindow.geometry('550x600')
+    outputlabel=Label(outputwindow,text=calcontent,font='Consolas 10 bold')
+    outputlabel.grid(row=5,column=1,padx=20)
+    outputwindow.mainloop()
+
+    
+
+title_l=Label(window,text='Calender',font='Times 28 bold')
+year_l=Label(window,text='Year')
 entry_i=Entry(window)
-show_b=Button(window,text='Show Calender')
-show_e=Button(window,text='Exit')
+show_b=Button(window,text='Show Calender',command=showCal)
+show_e=Button(window,text='Exit',command=exit)
 
 
 title_l.grid(row=0,column=0)
